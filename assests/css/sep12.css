@@ -1,0 +1,29 @@
+.carousel-caption {
+    position: absolute;
+    top: 35%;
+}
+.boot{
+    text-align: center;
+}
+.main{
+    border: 0px solid;
+    height: 400px;
+    width: 100%;
+    position: absolute;
+    top: 120%;
+}
+.about{
+    text-align: center;
+}
+.sub{
+     border: 0px solid;
+    height: 400px;
+    width: 100%;
+    position: absolute;
+    top: 180%;
+}
+.hii{
+    text-align: center;
+}
+
+

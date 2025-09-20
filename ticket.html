@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paytm Bus Ticket</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        /* Replicating the Paytm App UI Style */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        body {
+            background-color: #f5f7fa; /* Paytm's typical light grey app background */
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 480px;
+            margin: auto;
+        }
+        .header {
+            padding: 1rem 0.5rem;
+        }
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .header .amount {
+            font-size: 1rem;
+            color: #505050;
+            margin-top: 4px;
+        }
+        .paytm-card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* 16px */
+            margin-bottom: 1rem;
+            overflow: hidden; /* Important for the green header */
+        }
+        .trip-card-header {
+            background-color: #e6f8f0; /* The light green background */
+            padding: 1.25rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .trip-card-body {
+            padding: 1.25rem;
+        }
+        .operator-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .operator-icon {
+            background-color: #e6f3ff;
+            color: #007bff;
+            border-radius: 0.75rem; /* 12px */
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .operator-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .bus-type {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        .route-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .route-info .city {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .route-info .time {
+            color: #505050;
+            font-size: 0.9rem;
+        }
+        .route-info .duration {
+            color: #505050;
+            font-size: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 2px 8px;
+        }
+        .dotted-divider {
+            border: none;
+            border-top: 2px dashed #e0e0e0;
+            margin: 1.25rem 0;
+        }
+        .card-padding {
+            padding: 1.25rem;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+        .detail-row .label {
+            color: #333;
+        }
+        .detail-row .value, .detail-row .value-bold {
+            color: #333;
+            text-align: right;
+        }
+        .detail-row .value-bold {
+            font-weight: 700;
+        }
+        .transaction-id {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        .timestamp {
+            background-color: #f0f1f5;
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .support-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        .support-link .chevron {
+            color: #888;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>Trip Confirmed</h1>
+            <div class="amount">Amount Paid: ₹1578</div>
+        </header>
+
+        <div class="paytm-card">
+            <div class="trip-card-header">
+                <div class="operator-info">
+                    <div class="operator-icon">
+                        <i class="bi bi-bus-front"></i>
+                    </div>
+                    <div>
+                        <div class="operator-name">Flix Bus</div>
+                        <div class="bus-type">VOLVO MULTI-AXLE A/C SLEEPER (2+1)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="trip-card-body">
+                <div class="route-info">
+                    <div class="origin">
+                        <div class="city">Hyderabad</div>
+                        <div class="time">10:00 PM, Jun 14</div>
+                    </div>
+                    <div class="duration">10h 00m</div>
+                    <div class="destination">
+                        <div class="city">Bangalore</div>
+                        <div class="time">08:00 AM, Jun 15</div>
+                    </div>
+                </div>
+                <hr class="dotted-divider">
+                <div class="detail-row">
+                    <span class="label">Passenger</span>
+                    <span class="value">Rohan</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Seat no.</span>
+                    <span class="value-bold">L12</span>
+                </div>
+                <hr style="border-color: #f0f1f5; margin: 1rem 0;">
+                <div class="detail-row">
+                    <span class="label" style="font-size: 0.9rem;">Order ID: 310987654321</span>
+                    <span class="label" style="font-size: 0.9rem;">Ticket no: 7894561230</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="paytm-card card-padding">
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem;">Fare & Payment Details</h3>
+            <div class="detail-row">
+                <span class="label">Base Fare</span>
+                <span class="value">₹1258</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Taxes & Charges</span>
+                <span class="value">₹320</span>
+            </div>
+            <hr style="border-color: #f0f1f5; margin: 0.5rem 0;">
+            <div class="detail-row">
+                <span class="label value-bold">Total amount paid</span>
+                <span class="value-bold">₹1578</span>
+            </div>
+            <hr class="dotted-divider">
+            <div class="detail-row">
+                <span class="label">Payment Method</span>
+                <span class="value">₹1578</span>
+            </div>
+            <div class="detail-row" style="padding-top: 0;">
+                <span class="label" style="font-weight: 500;">Paytm UPI</span>
+                <span class="transaction-id">Transaction ID: 628451093742</span>
+            </div>
+        </div>
+
+        <div class="timestamp">
+            Ticket booked on: 18 September 2025, 08:15 PM
+        </div>
+
+        <a href="#" class="support-link">
+            <span>Frequently Asked Questions</span>
+            <span class="chevron">&gt;</span>
+        </a>
+        <a href="#" class="support-link">
+            <span>Help & Support</span>
+            <span class="chevron">&gt;</span>
+        </a>
+
+    </div>
+
+</body>
+</html>
